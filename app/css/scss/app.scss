@@ -1,0 +1,177 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.4;
+	margin-bottom: 196px;
+	@include improve-legibility;
+	@include media-breakpoint-down(md) {
+		line-height: 1.5;
+		margin-bottom: 202px;	
+	}
+}
+.nowrap{
+	white-space: nowrap;
+}
+.text-muted{
+	color: $gray-400-transparent !important;
+}
+.text-danger{
+	color: $red !important;
+}
+.lead {
+		font-size: 1.2rem;
+	@include media-breakpoint-down(md) {
+		font-size: 1.15rem;
+	}
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	line-height: 1.3;
+	margin-bottom: .75em;
+	font-weight: 700;
+	margin-top: 1.25em;
+	margin-left: -.1em;
+
+	@include media-breakpoint-down(md) {
+		line-height: 1.2;
+		margin-bottom: .6em;
+		margin-top: 1.2em;
+	}
+}
+
+h1, .h1{
+	margin-top: 0;
+	@include media-breakpoint-down(md) {
+		font-size: 2rem;
+	}
+}
+
+// important
+h2:first-child, h3:first-child, h4:first-child, h5:first-child,
+h1 + h2, h2 + h3, h3 + h4, h4 + h5 {
+	margin-top: 0;
+}
+
+// Base styles
+a {
+	@include link-style($link-color, $link-hover-color);
+
+	&.dotted {
+		border-bottom-style: dotted !important;
+	}
+}
+a.inside {
+	@include inside-link-style($link-color, $link-hover-color);
+}
+
+.container {
+	width: auto;
+	max-width: 680px;
+	padding: 0 15px;
+}
+
+main {
+	padding-bottom: 3rem;
+}
+
+.userpic {
+	width: 50px;
+	height: 50px;
+}
+
+
+// HEADER
+.masthead {
+	padding: 30px 0 80px 0;
+	box-sizing: content-box;
+	@include media-breakpoint-down(md) {
+		padding: 30px 0 50px 0;
+	}
+	&.overlay{
+		position: absolute;
+		top: 0;
+		z-index: 3;
+		width: 100%;
+	}
+}
+.masthead-brand {
+	height: 50px;
+	margin-bottom: 0;
+	display: flex;
+	.logo-container {
+		position: relative;
+		display: block;	
+		width: 68px;
+		height: 50px;
+	}
+}
+
+.nav-masthead {
+	.nav-link {
+		padding: .25rem 0;
+		font-weight: 700;
+		margin: 0;
+	}
+}
+.masthead-brand, .nav-masthead{
+	padding: 0 15px;
+}
+@include media-breakpoint-up(md) {
+	.masthead-brand {
+		@include make-col(3);
+	}
+	.nav-masthead {
+		@include make-col(9);
+		justify-content: flex-end;
+		.nav-link{
+			margin-left: 4rem;
+		}
+	}
+}
+@include media-breakpoint-down(md) {
+	.masthead-brand {
+		@include make-col(12);
+		justify-content: center;
+		margin-bottom: 1.5rem;
+	}
+	.nav-masthead {
+		@include make-col(12);
+		justify-content: center;
+		.nav-link{
+			margin: 0 2rem;
+		}
+	}
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 196px;
+	padding-top: 60px;
+	& .row{	
+		padding: 30px 0;
+		border-top: 1px solid $gray-100-transparent;
+	}
+
+	@include media-breakpoint-down(md) {
+		height: 202px;	
+	}
+}
+
+.vk-icon{
+	color: #45668e;
+}
+.fb-icon {
+	color: #3b5998;
+}
+.be-icon {
+	color: #1769ff;
+}
+.insta-icon {
+	color: #833ab4;
+}

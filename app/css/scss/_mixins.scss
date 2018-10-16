@@ -1,0 +1,142 @@
+// Links
+@mixin link-style($link-color, $link-hover-color) {
+	text-decoration: none;
+	color: $link-color;
+	border-bottom: 1px solid transparentize($link-color, .7);
+	transition-duration: .33s;
+	transition-property: border-bottom,border-color,background,color,fill;
+	transition-timing-function: ease-out;
+
+	&.dotted {
+		border-bottom-style: dotted !important;
+	}
+
+	&:hover, &.hover {
+		color: $link-hover-color;
+		border-bottom-color: transparentize($link-hover-color, .7) !important;
+		text-decoration: none;
+		transition: none;
+	}
+
+	&.btn, &.btn:hover {
+		border: none;
+	}
+}
+
+@mixin inside-link-style($link-color, $link-hover-color) {
+	text-decoration: none;
+	color: $link-color;
+	border: none;
+	transition-duration:  .33s;
+	transition-property: border-bottom,border-color,background,color,fill;
+	transition-timing-function: ease-out;
+
+	span {
+		transition-duration: .33s;
+		transition-property: border-bottom,border-color,background,color,fill;
+		transition-timing-function: ease-out;
+		border-bottom: 1px solid transparentize($link-color, .7);
+		&.text-muted {
+			border-bottom-color: transparentize($text-muted, .7);
+		}
+	}
+	&.dotted{
+		span {
+			border-bottom-style: dotted !important;
+		}
+	}
+	&:hover, &.hover {
+		color: $link-hover-color !important;
+		text-decoration: none;
+		transition: none;
+		span {
+			color: $link-hover-color !important;
+			border-bottom-color: transparentize($link-hover-color, .7) !important;
+			transition: none;
+		}
+	}
+	&:active {
+		color: $link-hover-color;
+		span {
+			border-bottom-color: transparentize($link-hover-color, .4);
+		}
+	}
+}
+
+// Buttons hovering etc
+@mixin btn-colors($base-button) {
+	&:hover {
+		background-color: darken($base-button, 15%);
+	}
+
+	&:not(:disabled):not(.disabled).active,
+	&:not(:disabled):not(.disabled):active,
+	.show > &.dropdown-toggle {
+		color: #fff;
+		background-color: darken($base-button, 15%);
+		border-color: darken($base-button, 15%);
+	}
+
+	&.focus,
+	&:focus {
+		box-shadow: 0 0 0 .2rem transparentize($base-button, .7);
+	}
+
+	&.btn-primary:not(:disabled):not(.disabled):active:focus,
+	&.btn-primary:not(:disabled):not(.disabled).active:focus,
+	.show > &.btn-primary.dropdown-toggle:focus {
+		box-shadow: 0 0 0 .2rem transparentize($base-button, .8);
+	}
+}
+
+@mixin gradient($direction, $from, $to) {
+	background: linear-gradient(to $direction,  $from 0%, $to 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='$to',GradientType=0 ); /* IE6-9 */
+} 
+
+// Zooming pics
+@mixin full-fit {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+@mixin zoom-background {
+	@include full-fit;
+	overflow: hidden;
+
+	.zoom-pic {
+		@include full-fit;
+		transition: .2s;
+	}
+
+	a &:hover .zoom-pic {
+		transform: scale(1.025);
+	}
+}
+
+// For IE 10-11
+@mixin target-metro {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}
+
+@mixin text-shadow($horizOffset, $vertOffset, $blur, $color) {
+	text-shadow: $horizOffset $vertOffset $blur $color;
+}
+
+@mixin improve-legibility {
+    /*
+        The improve-legibility mixin is recommended for headers and smaller amounts of text
+        due to the more resource-intensive font-rendering. It is not recommended for mobile
+        devices. For more information, refer to the MDN article ( https://developer.mozilla.org/en-US/docs/CSS/text-rendering ),
+        or Gigaom ( http://gigaom.com/2010/08/12/optimizelegibility-for-clearer-text-in-your-browser/ ).
+        Inspect in Chrome or Safari and toggle the text-rendering: optimizeLegibility rule on and off to
+        see the effect on kerning. It will also activate ligatures on fonts that support extended sets.
+    */
+    text-rendering: optimizeLegibility;
+    @include text-shadow(0, 0, 1px, transparent);
+}

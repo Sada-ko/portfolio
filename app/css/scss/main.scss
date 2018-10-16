@@ -1,0 +1,14 @@
+// Подключение нужных SCSS исходников Bootstrap 4
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+//В нём включаем и выключаем всю хуйню
+@import "variables"; // мои переменные
+@import "mixins"; // мои миксины
+
+// css-плагины почему-то грузятся самыми первыми
+@import "../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
+@import "../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
+// @import "../animate.min.css";
+
+//Пользовательские стили
+@import "app";

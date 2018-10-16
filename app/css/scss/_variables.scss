@@ -1,0 +1,16 @@
+// COLORS
+$gray-000-transparent : transparentize(black, 1);
+$gray-100-transparent : transparentize(black, .9);
+$gray-200-transparent : transparentize(black, .8);
+$gray-300-transparent : transparentize(black, .7);
+$gray-400-transparent : transparentize(black, .6);
+$gray-500-transparent : transparentize(black, .5);
+$gray-600-transparent : transparentize(black, .4);
+$gray-700-transparent : transparentize(black, .3);
+$gray-800-transparent : transparentize(black, .2);
+$gray-900-transparent : transparentize(black, .1);
+$gray-1000-transparent: transparentize(black, 0);
+
+$red                  : 	#A30000;
+$link-color           : 	#004777;
+$link-hover-color     : 	$red;
