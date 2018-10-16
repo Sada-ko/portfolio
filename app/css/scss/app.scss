@@ -81,16 +81,14 @@ main {
 .userpic {
 	width: 50px;
 	height: 50px;
+	border-radius: 50%;
 }
 
 
 // HEADER
 .masthead {
-	padding: 30px 0 80px 0;
 	box-sizing: content-box;
-	@include media-breakpoint-down(md) {
-		padding: 30px 0 50px 0;
-	}
+	
 	&.overlay{
 		position: absolute;
 		top: 0;
@@ -99,15 +97,7 @@ main {
 	}
 }
 .masthead-brand {
-	height: 50px;
-	margin-bottom: 0;
 	display: flex;
-	.logo-container {
-		position: relative;
-		display: block;	
-		width: 68px;
-		height: 50px;
-	}
 }
 
 .nav-masthead {
